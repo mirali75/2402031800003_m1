@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #id_selector {
+            color:aliceblue;
+            background-color:  aqua;
+            font-family: Impact;
+            font-size: xx-large;
+            align-content: center;
+            align-items: center;
+        }
+        element{
+            color:bisque;
+            background-color: black;
+            font-family: Cambria;
+            font-size: xx-large;
+            align-content: center;
+            align-items: center;
+        }
+        .class {
+               color: orange;
+               background-color: aquamarine;
+               font-weight: bold;
+               font-family: Times New Roman;
+               font-size: xx-large;
+               align-content: center;
+               align-items: center;
+               }
+               *{
+                font-family: Courier New;
+                font-size: xx-large;
+                color: brown;
+                background-color: blanchedalmond;
+                align-items: center;
+               }
+    </style>
+</head>
+<body>
+    <h1> this programme is about css selector</h1>
+    <h1>
+        i use universal selector for this text.
+    </h1>
+    <p id="id_selector"> 
+        i use id selector in this.
+    </p>
+    <element>for this text , i use element selector.</element>
+    <p class="class" >for this  text ,i use class selector.</p>
+</body>
+</html>
