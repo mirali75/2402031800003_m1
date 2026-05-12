@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="external_css.css">
+</head>
+<body>
+    <!-- /* INLINE CSS */ -->
+    <p style="background-color: aquamarine; color: brown; font-family: Impact; font-size: xx-large;">
+        in this perticuler line i used inline css.
+    </p>
+    <!-- /* INTERNAL CSS ---- IF WE GIVE THE STYLE IN HEAD TAG THEN IT'S CALLED 
+        INTERNAL CSS */ -->
+
+    <!-- EXTERNAL CSS  -->
+    <element> this all content i write with the help of external css.</element>
+    <p class="class"> i used differnt diffrent types of selector for style. </p>
+    <p id="id_selector"> i liked the css file with the html code for style.</p>
+    <h1>i can completly understand this concepts.</h1>
+
+    
+</body>
+</html>
