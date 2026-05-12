@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="" href="external_css.css">
+</head>
+<body>
+    <element> hello this programme for multiple selection</element>
+    <h1> this style is same as upper text beacuse we use multiple selction.</h1>
+    <!-- if we named the selector like this(div,h1{}) then css consider this as two seperate 
+     names of selector, but if we named the selector like this(div h1{}) then the h1 
+     tag is must be in the div tag otherwise style will not apllied on h1 tag.  -->
+    <div>
+        <h1>
+            this text is in the div tag.
+        </h1>
+    </div>
+</body>
+</html>
