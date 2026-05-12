@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <p style="background-image: url('c:/Users/Student/VK.jpg'); 
+   background-size: cover; 
+   height: 600px;
+   color: brown; 
+   font-family: Impact; 
+   font-size: xx-large;">
+    helloo! VK........</p>
+</body>
+</html>
