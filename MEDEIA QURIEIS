@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+.responsive-box {
+  background-color: lightcoral;
+  padding: 200px;
+  font-size: 160px;
+  text-align: center;
+  border-radius: 2px;
+}
+
+.hidden-on-mobile {
+  display: none; 
+}
+
+
+
+@media (min-width: 600px) {
+  .responsive-box {
+    background-color: lightblue;
+    font-size: 20px;           
+
+  .hidden-on-mobile {
+    display: block;            
+  }
+}
+}
+
+
+@media (orientation: landscape) {
+  .responsive-box {
+    border: 5px solid black;  
+  }
+}
+
+
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;   
+    color: white;
+  }
+}
+
+    </style>
+</head>
+<body>
+     <div class="responsive-box">
+  Resize the window to watch me change color, layout, and visibility!
+</div>
+
+<p class="hidden-on-mobile">
+  This text disappears entirely on small mobile screens.
+</p>
+
+</body>
+</html>
