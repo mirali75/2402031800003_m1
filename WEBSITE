@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silver Oak University | Education to Innovation</title>
+    <style>
+          
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+body {
+    
+    background-image: url('campus.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+
+.bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(14, 34, 18, 0.65); 
+    z-index: 1;
+}
+
+.navbar {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+}
+
+.logo-text {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #f1f1f1;
+    border-left: 4px solid #4caf50; /* Signature green highlight border */
+    padding-left: 10px;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #81c784; 
+}
+
+
+.hero-section {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    flex-grow: 1;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.motto {
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #a5d6a7;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+.description {
+    font-size: 1.1rem;
+    margin-bottom: 35px;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: transform 0.2s;
+}
+
+.btn-primary {
+    background: #4caf50;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: #388e3c;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+.btn-secondary:hover {
+    background: #ffffff;
+    color: #111111;
+    transform: translateY(-2px);
+}
+
+
+.info-footer {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background: rgba(14, 23, 15, 0.9);
+    padding: 20px 5%;
+    border-top: 3px solid #4caf50;
+    font-size: 0.9rem;
+}
+
+.footer-item {
+    margin: 5px 15px;
+    color: #d1d1d1;
+}
+
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .nav-links a {
+        margin: 0 10px;
+    }
+    .hero-section h1 {
+        font-size: 2.2rem;
+    }
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .info-footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+   
+    <div class="bg-overlay"></div>
+
+   
+    <header class="navbar">
+        <div class="logo-container">
+            <span class="logo-text">SILVER OAK UNIVERSITY</span>
+        </div>
+        <nav class="nav-links">
+            <a href="https://silveroakuni.ac.in/" target="_blank">Home</a>
+            <a href="https://silveroakuni.ac.in/program-offered" target="_blank">Programs</a>
+            <a href="https://silveroakuni.ac.in/admission" target="_blank">Admissions</a>
+            <a href="https://silveroakuni.ac.in/contact" target="_blank">Contact Us</a>
+        </nav>
+    </header>
+
+  
+    <main class="hero-section">
+        <div class="hero-content">
+            <p class="motto">"Gyanam Parmam Bhushnam"</p>
+            <h1>Education to Innovation</h1>
+            <p class="description">
+                Join one of the premier private universities in Ahmedabad, Gujarat, fostering deep academic standards, state-of-the-art infrastructure, and strong industry integration.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://silveroakuni.ac.in/admission" class="btn btn-primary" target="_blank">Apply Online Now</a>
+                <a href="https://silveroakuni.ac.in/program-offered" class="btn btn-secondary" target="_blank">Explore Programs</a>
+            </div>
+        </div>
+    </main>
+
+   
+    <footer class="info-footer">
+        <div class="footer-item">
+            <strong>📍 Location:</strong> Gota, Ahmedabad, Gujarat, India - 382481
+        </div>
+        <div class="footer-item">
+            <strong>✉️ Email:</strong> info@silveroakuni.ac.in
+        </div>
+        <div class="footer-item">
+            <strong>📞 Call:</strong> +91 079-66046300
+        </div>
+    </footer>
+
+</body>
+</html>
