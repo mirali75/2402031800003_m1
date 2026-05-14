@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a{
+            position:fixed;
+            left: 100px;
+            top:100px;
+        }
+         b{
+            position:static;
+            left: 400px;
+            top:400px;
+        }
+         c{
+            position:sticky;
+            left: 800px;
+            top:400px;
+        }
+         d{
+            position:relative;
+            left: 100px;
+            top:100px;
+        }
+         e{
+            position:absolute;
+            left: 400px;
+            top:400px;
+        }
+    </style>
+
+</head>
+<body>
+    <a>hello world! ---a</a>
+    <b>hello world! ---b</b>
+    <c>hello world! ---c</c>
+    <d>hello world! ---d</d>
+    <e>hello world! ---e</e>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+</head>
+<body>
+    <a>
+    <h1 style="text-align: center; 
+      background-image:url('c:/Users/Student/Pictures/Saved Pictures/logo01.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      margin: 0;
+        height: 90vh;
+      font-family: Impact;
+      color:aquamarine; 
+     font-family:'Times New Roman', Times, serif;">SILVER OAK UNIVERSITY</h1>
+    </a>
+</body>
+</html>
