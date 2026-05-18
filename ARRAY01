@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let v1="MIRALI";
+        let v2="HADIYA";
+        document.write(v1.charAt(3)+"<br>");
+        document.write(v1.concat(v2)+"<br>");
+        document.write(v1.replace("MIRALI", "RIYA")+"<br>");
+        document.write(v1.trim()+"<br>");
+        document.write(v1.toLowerCase()+"<br>");
+        document.write(v1.toUpperCase()+"<br>");
+        document.write(v1.includes("RIYA")+"<br>");
+        document.write(v1.slice(0, 4)+"<br>");
+        document.write(v1.indexOf("a")+"<br>");
+        document.write(v1.at(-1)+"<br>");
+    </script>
+</body>
+</html>
