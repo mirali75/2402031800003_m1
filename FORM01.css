@@ -1,0 +1,213 @@
+   <html>
+<head>
+    <title>Premium Registration Form</title>
+    <style>
+    /* 1. New Aesthetic Canvas */
+    body {
+        background: #1a1a2e; /* Deep Midnight */
+        background: radial-gradient(circle at top right, #16213e, #1a1a2e, #0f3460);
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    /* 2. Glassmorphism Card with Soft Border */
+    #RegForm {
+        background: #ffffff;
+        padding: 45px;
+        border-radius: 30px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        width: 100%;
+        max-width: 420px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        animation: floatIn 0.9s ease-out;
+    }
+
+    @keyframes floatIn {
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 3. Aesthetic Typography */
+    h1 {
+        font-size: 26px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: #1a1a2e;
+        margin-bottom: 35px;
+        text-align: center;
+    }
+
+    /* 4. Elegant Input Styling */
+    .form-group {
+        margin-bottom: 22px;
+    }
+
+    label {
+        display: block;
+        font-size: 11px;
+        font-weight: 700;
+        margin-bottom: 6px;
+        color: #95a5a6; /* Muted slate */
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding-left: 5px;
+    }
+
+    input[type="text"], input[type="password"], select, textarea {
+        width: 100%;
+        padding: 14px 18px;
+        border: 1px solid #e0e0e0;
+        border-radius: 15px;
+        background: #fdfdfd;
+        font-size: 14px;
+        color: #2c3e50;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        box-sizing: border-box;
+        outline: none;
+    }
+
+    /* 5. Focus State - Lavender Glow */
+    input:focus, select:focus, textarea:focus {
+        border-color: #9575cd;
+        background: #ffffff;
+        box-shadow: 0 8px 20px rgba(149, 117, 205, 0.15);
+        transform: scale(1.01);
+    }
+
+    /* 6. Action Buttons */
+    .btn-container {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+    }
+
+    input[type="submit"] {
+        flex: 2;
+        padding: 16px;
+        background: #1a1a2e; /* Dark Contrast */
+        color: #ffffff;
+        border: none;
+        border-radius: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.4s ease;
+    }
+
+    input[type="submit"]:hover {
+        background: #4db6ac; /* Switches to Mint on hover */
+        box-shadow: 0 10px 20px rgba(77, 182, 172, 0.3);
+        transform: translateY(-3px);
+    }
+
+    input[type="reset"] {
+        flex: 1;
+        background: transparent;
+        color: #95a5a6;
+        border: 1px solid #e0e0e0;
+        border-radius: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    input[type="reset"]:hover {
+        background: #f8f9fa;
+        color: #1a1a2e;
+    }
+
+    textarea { resize: none; height: 70px; }
+</style>
+
+</head>
+<body>
+
+    <form name="RegForm" id="RegForm" onsubmit="return validate()">
+        <h1>Register</h1>
+
+        <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" name="Name" oninput="this.value = this.value.toUpperCase()" placeholder="JOHN DOE" />
+        </div>
+
+        <div class="form-group">
+            <label>Email Address</label>
+            <input type="text" name="EMail" placeholder="name@example.com" />
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="Password" placeholder="••••••••" />
+        </div>
+
+        <div class="form-group">
+            <label>Mobile Number</label>
+            <input type="text" name="Telephone" placeholder="9876543210" />
+        </div>
+
+        <div class="form-group">
+            <label>Selected Course</label>
+            <select name="Subject">
+                <option value="" disabled selected>Choose a course</option>
+                <option>B.TECH</option>
+                <option>M.TECH</option>
+                <option>BCA</option>
+                <option>MCA</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Additional Comments</label>
+            <textarea name="Comment" oninput="this.value = this.value.toUpperCase()" placeholder="ANYTHING ELSE?"></textarea>
+        </div>
+
+        <div class="btn-container">
+            <input type="submit" value="Sign Up" />
+            <input type="reset" value="Clear" />
+        </div>
+    </form>
+
+    <script>
+        function validate() {
+            var form1 = document.getElementById("RegForm");
+            var name = form1.Name.value;
+            var email = form1.EMail.value;
+            var phone = form1.Telephone.value;
+            var what = form1.Subject.value;
+            var password = form1.Password.value;
+            
+            // Fixed the regEmail bug (removed quotes)
+            var regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            var regPhone = /^\d{10}$/;
+
+            if (name == "") {
+                alert("Please Enter Your Name");
+                return false;
+            }
+            if (email == "" || !regEmail.test(email)) {
+                alert("Please enter a valid e-mail address.");
+                return false;
+            }
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters.");
+                return false;
+            }
+            if (!regPhone.test(phone)) {
+                alert("Please enter a valid 10-digit phone number.");
+                return false;
+            }
+            if (what == "") {
+                alert("Please select your course.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>  
