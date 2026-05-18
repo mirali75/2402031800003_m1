@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The World's Hardest Game</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #ffeaa7;
+            font-family: 'Comic Sans MS', cursive;
+            overflow: hidden;
+        }
+        h1 { color: #d63031; }
+        #game-button {
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #00b894;
+            color: white;
+            border: 4px solid #2d3436;
+            border-radius: 50px;
+            position: absolute;
+            transition: 0.1s;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Click the Green Button to Win!</h1>
+    <p id="message">It's easy. Just one click.</p>
+    <button id="game-button">Click Me!</button>
+
+    <script>
+        const btn = document.getElementById('game-button');
+        const msg = document.getElementById('message');
+        const funnyLines = [
+            "Too slow!", "Missed me!", "Nice try, turtle.", 
+            "Is your mouse broken?", "Are you even trying?", 
+            "My cat is faster than you.", "Oop! Over here now!"
+        ];
+
+        // This makes the button jump away when the mouse gets close
+        btn.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - btn.clientWidth);
+            const y = Math.random() * (window.innerHeight - btn.clientHeight);
+            
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+            
+            // Pick a random funny message
+            msg.innerText = funnyLines[Math.floor(Math.random() * funnyLines.length)];
+        });
+
+        // In case they actually manage to click it
+        btn.addEventListener('click', () => {
+            alert("WAIT! HOW DID YOU DO THAT?! You cheated!");
+            msg.innerText = "Okay, you win... but I'm calling the police.";
+        });
+    </script>
+</body>
+</html>
