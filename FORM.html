@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <title>registarion form</title>
+        <style>
+            /* General Page Styling */
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Form Container & Animation */
+#RegForm {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    animation: fadeIn 0.8s ease-out; /* Slide-in effect */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Table Styling */
+table { border-spacing: 10px; width: 100%; }
+h1 { color: #333; margin-bottom: 20px; font-size: 24px; }
+
+
+   
+
+/* Input Fields Styling */
+
+input[type="text"], select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: all 0.3s ease; /* Smooth transition for focus */
+    outline: none;       
+}
+
+/* Hover & Focus Animation */
+input:focus, select:focus, textarea:focus {
+    border-color: #764ba2;
+    box-shadow: 0 0 8px rgba(118, 75, 162, 0.3);
+    transform: scale(1.02);
+}
+
+/* Button Styling */
+input[type="submit"], input[type="reset"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+
+input[type="submit"] { background-color: #667eea; color: white; }
+input[type="reset"] { background-color: #f3f4f6; color: #333; }
+
+/* Button Hover Effects */
+input[type="submit"]:hover { background-color: #764ba2; transform: translateY(-2px); }
+input[type="reset"]:hover { background-color: #e5e7eb; }
+
+        </style>
+    </head>
+    <body>
+        <script>
+            function validate()
+             {
+                var form1 = document.getElementById("RegForm");
+                var name = form1.Name.value;
+                var email = form1.EMail.value;
+                var phone = form1.Telephone.value;
+                var what = form1.Subject.value;
+                var password = form1.Password.value;
+                var regEmail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;
+                var regPhone=/^\d{10}$/;if (name == "") 
+                {
+                    window.alert("Please Enter Your Name");
+                    return false;
+                }
+                else if(email == "" || !regEmail.test(email))
+                {
+                    window.alert("Please enter a valid e-mail address.");
+                    return false;
+                }
+                else if (password == "") 
+                {
+                    alert("Please enter your password");
+                    return false;
+                }
+                else if(password.length <6)
+                {
+                    alert("Password should be atleast 6 character long");
+                    return false;
+                }
+                else if (phone == "" || !regPhone.test(phone))
+                {
+                    alert("Please enter valid phone number.");
+                    return false;
+                }
+                else if (what.selectedIndex == -1) 
+                {
+                    alert("Please enter your course.");
+                    return false;
+                }
+            }
+        </script>
+        <form name="RegForm" method="post" id="RegForm" onsubmit="return validate()" >
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <h1 style="text-align:center;">REGISTRATION FORM</h1></td> <td></td> 
+                </tr>
+                <tr>
+                    <td>Name :</td>
+                    <td><input type="text" size="40" name="Name" oninput="this.value = this.value.toUpperCase()" 
+                        placeholder="enter tour name"/> <br /></td>
+                </tr>
+                <tr>
+                    <td>E-mail Address:</td>
+                    <td><input type="text" size="40" name="EMail" oninput="this.value = this.value.toUpperCase()"
+                        placeholder="abc@gmail.com"/><br></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="text" size="40" name="Password" 
+                        placeholder="enter your password"/><br></td>
+                </tr>
+                <tr>
+                    <td>Mobile:</td>
+                    <td><input type="text" size="40"name="Telephone" 
+                        placeholder="635*******"/> <br></td>
+                </tr>
+                <tr>
+                    <td>Select Your Course : </td>
+                    <td><select type="text"name="Subject">
+                        <option>B.Tech</option>
+                        <option>M.Tech</option>
+                        <option>BCA</option>
+                        <option>MCA</option>
+                    </select> <br></td>
+                </tr> <br/> <br/>
+                <tr>
+                    <td>Comments:</td>
+                    <td><textarea cols="40" name="Comment"oninput="this.value = this.value.toUpperCase()"
+                        placeholder="HAVE A NICE DAY!"></textarea> <br></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Submit" name="Submit" /> &nbsp;<input type="reset" value="Reset" name="Reset" /> <br></td>
+                </tr>
+            </table>
+        </form>
+        </body>
+        </html>
