@@ -1,0 +1,188 @@
+/* Core Layout Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Full Screen Background Configuration */
+body {
+    /* Replace 'campus.jpg' with your real campus image file path */
+    background-image: url('campus.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Dark tint overlay layer to maintain high text contrast over images */
+.bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(14, 34, 18, 0.65); /* Earthy green-tinted dark veil */
+    z-index: 1;
+}
+
+/* Navbar Layout */
+.navbar {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+}
+
+.logo-text {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #f1f1f1;
+    border-left: 4px solid #4caf50; /* Signature green highlight border */
+    padding-left: 10px;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #81c784; /* Soft green hover color state */
+}
+
+/* Hero Content Window */
+.hero-section {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    flex-grow: 1;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.motto {
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #a5d6a7;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+.description {
+    font-size: 1.1rem;
+    margin-bottom: 35px;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+/* Call to Action Button Design */
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: transform 0.2s, background 0.3s;
+}
+
+.btn-primary {
+    background: #4caf50;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: #388e3c;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+.btn-secondary:hover {
+    background: #ffffff;
+    color: #111111;
+    transform: translateY(-2px);
+}
+
+/* Contact Details Footer Section */
+.info-footer {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background: rgba(14, 23, 15, 0.9);
+    padding: 20px 5%;
+    border-top: 3px solid #4caf50;
+    font-size: 0.9rem;
+}
+
+.footer-item {
+    margin: 5px 15px;
+    color: #d1d1d1;
+}
+
+/* Mobile Responsive Optimization Styles */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .nav-links a {
+        margin: 0 10px;
+    }
+    .hero-section h1 {
+        font-size: 2.2rem;
+    }
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .info-footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+}
