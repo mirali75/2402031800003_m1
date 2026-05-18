@@ -1,0 +1,275 @@
+<html>
+    <head>
+        <title>focus and change</title>
+    </head>
+    <body>
+        Select Product : <select name="" id="product">
+            <option value="45000">AC</option>
+            <option value="22000">TV</option>
+            <option value="15000">Refrigerator</option>
+            <option value="70000">Laptop</option> </select>
+            <br><br>
+        Net Prize : <input type="text" id="prize" readonly> <br><br>
+        Quantity : <input type="text" id="quantity"><br><br>
+        Total Amount :<input type="text" id="amount" readonly>
+        <script>
+            var product = document.getElementById("product");
+            var qunatity = document.getElementById("quantity");
+            var amount = document.getElementById("amount");
+            var prize = document.getElementById("prize");
+            product.addEventListener("change",()=>{
+                prize.value = product.value;
+            });
+            amount.addEventListener("focus",()=>{
+                amount.value=product.value * qunatity.value;
+            });
+        </script>
+    </body>
+</html> 
+
+<!-- <html>
+<head>
+    <title>only Change</title>
+    <style>
+        /* General Background */
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Card Container */
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    width: 350px;
+}
+
+/* Labels */
+label {
+    display: block;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+/* Inputs & Select Box */
+select, input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #e1e8ed;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333;
+    background-color: #f9fbff;
+    transition: all 0.3s ease;
+    box-sizing: border-box; /* Prevents width issues */
+}
+
+/* Focus Effects */
+select:focus, input:focus {
+    border-color: #4a90e2;
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0 0 10px rgba(74, 144, 226, 0.2);
+}
+
+/* Styling Readonly Fields */
+input[readonly] {
+    background-color: #f1f3f5;
+    color: #777;
+    cursor: not-allowed;
+    border-style: dashed;
+}
+
+/* Total Amount Highlight */
+#amount {
+    font-weight: bold;
+    color: #27ae60; /* Green for money */
+    font-size: 18px;
+    border: 2px solid #27ae60;
+}
+
+    </style>
+</head>
+<body>
+    Select Product: 
+    <select id="product">
+        <option value="45000">AC</option>
+        <option value="22000">TV</option>
+        <option value="15000">Refrigerator</option>
+        <option value="70000">Laptop</option> 
+    </select>
+    <br><br>
+    
+    Net Prize: <input type="text" id="prize" readonly> <br><br>
+    Quantity: <input type="text" id="quantity"><br><br>
+    Total Amount: <input type="text" id="amount" readonly>
+
+    <script>
+        var product = document.getElementById("product");
+        var quantity = document.getElementById("quantity"); 
+        var amount = document.getElementById("amount");
+        var prize = document.getElementById("prize");
+
+        // Function to update math
+        function calculate() {
+            amount.value = product.value * quantity.value;
+        }
+
+        // Update prize immediately on change
+        product.addEventListener("change", () => {
+            prize.value = product.value;
+            calculate(); // Recalculate if product changes
+        });
+
+        // Update amount WHENEVER quantity is typed (Better than focus)
+        quantity.addEventListener("input", calculate);
+
+        // Run once on page load so Prize isn't empty at start
+        prize.value = product.value;
+    </script>
+</body>
+</html>
+
+<html>
+<head>
+    <title>Product Selector - Dashboard</title>
+    <style>
+        /* General Background */
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Card Container - With Animation */
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            width: 350px;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Labels */
+        label {
+            display: block;
+            font-weight: 600;
+            color: #444;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        /* Inputs & Select Box */
+        select, input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 2px solid #e1e8ed;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #333;
+            background-color: #f9fbff;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        /* Focus Effects */
+        select:focus, input:focus {
+            border-color: #4a90e2;
+            background-color: #fff;
+            outline: none;
+            box-shadow: 0 0 10px rgba(74, 144, 226, 0.2);
+            transform: scale(1.01);
+        }
+
+        /* Styling Readonly Fields */
+        input[readonly] {
+            background-color: #f1f3f5;
+            color: #777;
+            cursor: not-allowed;
+            border-style: dashed;
+        }
+
+        /* Total Amount Highlight */
+        #amount {
+            font-weight: bold;
+            color: #27ae60;
+            font-size: 18px;
+            border: 2px solid #27ae60;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2 style="text-align: center; margin-top: 0; color: #333;">Checkout</h2>
+    
+    <label>Select Product:</label>
+    <select id="product">
+        <option value="45000">AC</option>
+        <option value="22000">TV</option>
+        <option value="15000">Refrigerator</option>
+        <option value="70000">Laptop</option> 
+    </select>
+
+    <label>Net Prize:</label>
+    <input type="text" id="prize" readonly>
+
+    <label>Quantity:</label>
+    <input type="number" id="quantity" value="1" min="1">
+
+    <label>Total Amount:</label>
+    <input type="text" id="amount" readonly>
+</div>
+
+<script>
+    var product = document.getElementById("product");
+    var quantity = document.getElementById("quantity"); // Fixed spelling
+    var amount = document.getElementById("amount");
+    var prize = document.getElementById("prize");
+
+    // Calculation Function
+    function calculate() {
+        var p = parseFloat(product.value) || 0;
+        var q = parseFloat(quantity.value) || 0;
+        amount.value = "₹ " + (p * q).toLocaleString(); // Added currency formatting
+    }
+
+    // Event: Product Change
+    product.addEventListener("change", () => {
+        prize.value = product.value;
+        calculate();
+    });
+
+    // Event: Quantity Input (Instant update as user types)
+    quantity.addEventListener("input", calculate);
+
+    // Initial Load
+    window.onload = () => {
+        prize.value = product.value;
+        calculate();
+    };
+</script>
+
+</body>
+</html> -->
