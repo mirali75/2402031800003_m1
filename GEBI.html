@@ -1,0 +1,65 @@
+<!-- <html>
+    <body>
+        <input type="text" id="myText">
+        <button onclick="myFunction()">submit my name</button>
+    </body>
+    <head>
+        <script>
+            function myFunction()
+                {
+                    var txt = document.getElementById("myText");
+                    document.write("your name is successfully added!");
+                    alert(txt.value);
+                }
+        </script>
+    </head>
+</html>  -->
+
+<!-- 
+<html>
+    <body>
+        <input type="text" name="myText">
+        <button onclick="myFunction()">submit my name</button>
+    </body>
+    <head>
+        <script>
+            function myFunction()
+                {
+                    a=document.getElementsByName("myText")[0];
+                    document.write("your name is successfully added!");
+                    alert(a.value);
+                }
+        </script>
+    </head>
+</html> -->
+
+<html>
+    <body>
+        <form name="myForm">
+            <label>USERNAME</label>
+            <input type="text" name="uname">
+            <br>
+            <label>PASSWORD</label>
+            <input type="text" name="pword">
+            <br>
+            <button onclick="f()">SUBMIT</button>
+           
+            <script>
+                function f()
+                    {
+                        var a = document.forms["myForm"];
+                        var u = a.uname.value;
+                        var p = a.pword.value;
+                        if(u=="admin" && p=="123")
+                            {
+                                alert("valid");
+                            }
+                        else
+                            {
+                                alert("Invalid");
+                            }
+                    }
+            </script>
+        </form>
+    </body>
+</html>
