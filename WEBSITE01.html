@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>FinanceFlow</title>
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+            <style>
+            *{
+                margin:0;
+                padding:0;
+                box-sizing:border-box;
+                font-family:'Poppins',sans-serif;
+            }
+            body{
+                background:linear-gradient(135deg,#ecfeff,#eef2ff,#f0fdfa);
+                min-height:100vh;
+                overflow-x:hidden;
+                color:#0f172a;
+            }
+/* Animated Background */
+            body::before,
+            body::after{
+                content:"";
+                position:fixed;
+                border-radius:50%;
+                filter:blur(120px);
+                z-index:-1;
+            }
+            body::before{
+                width:500px;
+                height:500px;
+                background:#93c5fd;
+                top:-150px;
+                left:-150px;
+                animation:float1 10s infinite alternate ease-in-out;
+            }
+            body::after{
+                width:450px;
+                height:450px;
+                background:#99f6e4;
+                bottom:-150px;
+                right:-150px;
+                animation:float2 12s infinite alternate ease-in-out;
+            }
+            @keyframes float1{
+                from{transform:translateY(0px);}
+                to{transform:translateY(80px);}
+            }
+            @keyframes float2{
+                from{transform:translateY(0px);}
+                 to{transform:translateY(-80px);}
+            }
+            @keyframes fadeUp{
+                from{opacity:0;transform:translateY(40px);}
+                to{opacity:1;transform:translateY(0px);}
+            }
+/* HEADER */
+            header{
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                padding:25px 8%;
+                background:rgba(255,255,255,0.6);
+                backdrop-filter:blur(15px);
+                box-shadow:0 5px 20px rgba(0,0,0,0.05);
+            }
+            .logo{
+                font-size:26px;
+                font-weight:700;
+                color:#0891b2;
+            }
+            nav{
+                display:flex;
+                gap:18px;
+            }
+            nav a{
+                text-decoration:none;
+                color:#334155;
+                font-weight:500;
+                font-size:15px;
+                transition:0.3s;
+                position:relative;
+            }
+            nav a::after{
+                content:"";
+                position:absolute;
+                width:0%;
+                height:2px;
+                background:#06b6d4;
+                left:0;
+                bottom:-5px;
+                transition:0.3s;
+            }
+            nav a:hover::after{
+                width:100%;
+            }
+            nav a:hover{
+                color:#06b6d4;
+            }
+/* HOME */
+            .home{
+                min-height:100vh;
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                flex-direction:column;
+                text-align:center;
+                padding:40px 20px;
+            }
+            .home h1{
+                font-size:75px;
+                line-height:1.2;
+                max-width:1000px;
+                animation:fadeUp 1s ease;
+            }
+            .home span{
+                color:#06b6d4;
+            }
+            .home p{
+                margin-top:25px;
+                font-size:22px;
+                max-width:750px;
+                color:#475569;
+                line-height:1.8;
+                animation:fadeUp 1.5s ease;
+            }
+/* BUTTONS */
+            .hero-buttons{
+                margin-top:40px;
+                display:flex;
+                gap:20px;
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+            .hero-btn{
+                padding:16px 32px;
+                border:none;
+                border-radius:18px;
+                font-size:17px;
+                cursor:pointer;
+                transition:0.4s;
+                font-weight:600;
+            }
+            .primary-btn{
+                background:linear-gradient(to right,#06b6d4,#14b8a6);
+                color:white;
+                box-shadow:0 10px 25px rgba(6,182,212,0.3);
+            }
+            .secondary-btn{
+                background:white;
+                color:#0891b2;
+            }
+            .hero-btn:hover{
+                transform:translateY(-5px) scale(1.03);
+            }
+/* CARDS */
+            .dashboard-grid{
+                width:100%;
+                max-width:1200px;
+                margin-top:70px;
+                display:grid;
+                grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+                gap:30px;
+            }
+            .card{
+                background:rgba(255,255,255,0.65);
+                backdrop-filter:blur(15px);
+                padding:35px;
+                border-radius:30px;
+                transition:0.4s;
+                cursor:pointer;
+                box-shadow:0 15px 35px rgba(0,0,0,0.06);
+                animation:fadeUp 1s ease;
+            }
+            .card:hover{
+                transform:translateY(-12px);
+            }
+            .card-icon{
+                width:80px;
+                height:80px;
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                border-radius:20px;
+                background:linear-gradient(to right,#06b6d4,#14b8a6);
+                color:white;
+                font-size:35px;
+                margin:0 auto 25px;
+            }
+            .card h2{
+                margin-bottom:15px;
+                color:#0891b2;
+            }
+            .card p{
+                color:#475569;
+                line-height:1.8;
+            }
+/* SECTIONS */
+            .section{
+                display:none;
+                width:92%;
+                max-width:1100px;
+                margin:50px auto;
+                padding:40px;
+                border-radius:35px;
+                background:rgba(255,255,255,0.65);
+                backdrop-filter:blur(15px);
+                box-shadow:0 15px 35px rgba(0,0,0,0.06);
+                animation:fadeUp 0.6s ease;
+            }
+            .section-title{
+                text-align:center;
+                font-size:42px;
+                margin-bottom:35px;
+            }
+/* INPUTS */
+            .input-group{
+                margin-bottom:20px;
+            }
+            input,select{
+                width:100%;
+                padding:17px;
+                border:none;
+                border-radius:18px;
+                background:#f1f5f9;
+                font-size:16px;
+                outline:none;
+            }
+            .main-btn{
+                width:100%;
+                padding:17px;
+                border:none;
+                border-radius:18px;
+                background:linear-gradient(to right,#06b6d4,#14b8a6);
+                color:white;
+                font-size:18px;
+                cursor:pointer;
+                transition:0.3s;
+                margin-top:10px;
+            }
+            .main-btn:hover{
+                transform:scale(1.02);
+            }
+/* SUMMARY */
+            .summary-grid{
+                margin-top:35px;
+                display:grid;
+                grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+                gap:25px;
+            }
+            .summary-card{
+                background:white;
+                padding:30px;
+                border-radius:25px;
+                text-align:center;
+                box-shadow:0 10px 25px rgba(0,0,0,0.05);
+            }
+            .summary-card h3{
+                color:#0891b2;
+                margin-bottom:10px;
+            }
+            .summary-card p{
+                font-size:32px;
+                font-weight:700;
+            }
+/* TABLE */
+            .table-container{
+                overflow-x:auto;
+            }
+            table{
+                width:100%;
+                min-width:600px;
+                margin-top:30px;
+                border-collapse:collapse;
+                overflow:hidden;
+                border-radius:20px;
+            }
+            table th{
+                background:#06b6d4;
+                color:white;
+                padding:18px;
+            }
+            table td{
+                background:white;
+                padding:18px;
+                text-align:center;
+                border-bottom:1px solid #e2e8f0;
+            }
+/* PROFILE */
+            .profile-box{
+                text-align:center;
+            }
+            .profile-image{
+                width:140px;
+                height:140px;
+                border-radius:50%;
+                object-fit:cover;
+                margin-bottom:25px;
+                border:5px solid white;
+                box-shadow:0 10px 25px rgba(0,0,0,0.1);
+            }
+/* FOOTER */
+            footer{
+                text-align:center;
+                padding:35px;
+                color:#475569;
+            }
+/* RESPONSIVE */
+            @media(max-width:768px){
+                header{
+                    display:flex;
+                    justify-content:space-between;
+                    align-items:center;
+                    padding:25px 8%;
+                    background:rgba(255,255,255,0.6);
+                    backdrop-filter:blur(15px);
+                    box-shadow:0 5px 20px rgba(0,0,0,0.05);
+                }
+                nav{
+                    flex-wrap:wrap;
+                    justify-content:center;
+                }
+                .home h1{
+                    font-size:42px;
+                }
+                .home p{
+                    font-size:18px;
+                }
+                .dashboard-grid{
+                    grid-template-columns:1fr;
+                }
+                .section{
+                    padding:25px;
+                }
+                .section-title{
+                    font-size:30px;
+                }
+                .summary-grid{
+                    grid-template-columns:1fr;
+                }
+            }
+            @media(max-width:480px){
+                .home h1{
+                    font-size:32px;
+                }
+                .home p{
+                    font-size:16px;
+                }
+                .logo{
+                    font-size:24px;
+                    font-weight:700;
+                }
+            }
+            #home{
+                display:flex;
+            }
+            </style>
+        </head>
+        <body>
+            <header>
+                <div class="logo">FinanceFlow</div>
+                <nav>
+                    <a href="#" onclick="showSection('home')">Home</a>
+                    <a href="#" onclick="showSection('budget')">Budget</a>
+                    <a href="#" onclick="showSection('transactions')">Transactions</a>
+                    <a href="#" onclick="showSection('profile')">Profile</a>
+                </nav>
+            </header>
+<!-- HOME -->
+            <section class="home" id="home">
+                <h1>Take Control Of Your <span>Financial Future</span></h1>
+                <p>
+                    A modern finance dashboard to manage your expenses,
+                     monitor savings, calculate budgets, and track transactions beautifully.
+                </p>
+                <div class="hero-buttons">
+                    <button class="hero-btn primary-btn" onclick="showSection('budget')">
+                        Start Managing</button>
+                    <button class="hero-btn secondary-btn" onclick="showSection('transactions')">
+                         View Transactions</button>
+                </div>
+                <div class="dashboard-grid">
+                    <div class="card" onclick="showSection('budget')">
+                            <div class="card-icon">💰</div>
+                            <h2>Budget Manager</h2>
+                            <p> Calculate monthly and yearly savings with smart financial summaries.</p>
+                        </div>
+                        <div class="card" onclick="showSection('transactions')">
+                            <div class="card-icon">📊</div>
+                            <h2>Transaction Tracker</h2>
+                            <p> Add, monitor, and organize all your financial transactions easily.</p>
+                        </div>
+                        <div class="card" onclick="showSection('profile')">
+                            <div class="card-icon">👤</div>
+                            <h2>User Profile</h2>
+                            <p>Customize your dashboard and manage your personal details securely.</p>
+                        </div>
+                    </div>
+            </section>
+<!-- BUDGET -->
+            <section class="section" id="budget">
+                <h2 class="section-title">Budget Calculator</h2>
+                <div class="input-group">
+                    <input type="number" id="income" placeholder="Enter Monthly Income"></div>
+                    <div class="input-group">
+                        <input type="number" id="expense" placeholder="Enter Monthly Expense"></div>
+                        <button class="main-btn" onclick="calculateBudget()">Calculate Budget</button>
+                        <div class="summary-grid">
+                            <div class="summary-card">
+                                <h3>Monthly Savings</h3>
+                                <p id="monthlySavings">₹0</p>
+                            </div>
+                            <div class="summary-card">
+                                <h3>Yearly Income</h3>
+                                <p id="yearlyIncome">₹0</p>
+                            </div>
+                            <div class="summary-card">
+                                <h3>Yearly Savings</h3>
+                                <p id="yearlySavings">₹0</p>
+                            </div>
+                        </div>
+            </section>
+<!-- TRANSACTIONS -->
+            <section class="section" id="transactions">
+                <h2 class="section-title">Transaction Manager</h2>
+                <div class="input-group">
+                    <input type="text" id="title" placeholder="Transaction Title"></div>
+                    <div class="input-group">
+                        <input type="number" id="amount" placeholder="Transaction Amount">
+                    </div>
+                    <div class="input-group">
+                        <select id="type">
+                            <option value="Income">Income</option>
+                            <option value="Expense">Expense</option>
+                        </select>
+                    </div>
+                    <button class="main-btn" onclick="addTransaction()">Add Transaction</button>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Amount</th>
+                                    <th>Type</th>
+                                </tr>
+                            </thead>
+                            <tbody id="transactionTable"></tbody>
+                        </table>
+                    </div>
+            </section>
+<!-- PROFILE -->
+            <section class="section" id="profile">
+                <h2 class="section-title">User Profile</h2>
+                <div class="profile-box">
+                    <img class="profile-image"src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"alt="Profile">
+                    <div class="input-group">
+                        <input type="text" placeholder="Full Name">
+                    </div>
+                    <div class="input-group">
+                        <input type="email" placeholder="Email Address">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" placeholder="Phone Number">
+                    </div>
+                    <button class="main-btn">Save Profile</button>
+                </div>
+            </section>
+            <footer> © 2026 FinanceFlow | Smart Personal Finance Dashboard</footer>
+            <script>
+            function showSection(sectionId){
+                document.getElementById('home').style.display='none';
+                document.getElementById('budget').style.display='none';
+                document.getElementById('transactions').style.display='none';
+                document.getElementById('profile').style.display='none';
+                if(sectionId === 'home'){
+                    document.getElementById(sectionId).style.display='flex';}
+                    else{
+                        document.getElementById(sectionId).style.display='block';}
+                    }
+                    function calculateBudget(){
+                        let income = Number(document.getElementById('income').value);
+                        let expense = Number(document.getElementById('expense').value);
+                        let monthlySavings = income - expense;
+                        let yearlyIncome = income * 12;
+                        let yearlySavings = monthlySavings * 12;
+                        document.getElementById('monthlySavings').innerHTML = '₹' + monthlySavings;
+                        document.getElementById('yearlyIncome').innerHTML = '₹' + yearlyIncome;
+                        document.getElementById('yearlySavings').innerHTML = '₹' + yearlySavings;
+                    }
+                    function addTransaction(){
+                        let title = document.getElementById('title').value;
+                        let amount = document.getElementById('amount').value;
+                        let type = document.getElementById('type').value;
+                        if(title === '' || amount === ''){
+                            alert('Please fill all fields');
+                            return;}
+                            let table = document.getElementById('transactionTable');
+                            let row = table.insertRow();
+                            row.innerHTML = `<td>${title}</td>
+                                             <td>₹${amount}</td>
+                                             <td>${type}</td>`;
+                                             document.getElementById('title').value='';
+                                             document.getElementById('amount').value='';}
+            </script>
+        </body>
+    </html>
