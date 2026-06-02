@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <title>exapmle of jquery</title>
+    </head>
+    <body>
+        <p id="A1">
+           Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repudiandae ab quasi sed
+           cupiditate voluptatem, est consequatur blanditiis dignissimos temporibus,
+           eius pariatur dolorum libero molestias ducimus dolore minus iste saepe.</p>
+         <p id="A2">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repudiandae ab quasi sed
+           cupiditate voluptatem, est consequatur blanditiis dignissimos temporibus,
+           eius pariatur dolorum libero molestias ducimus dolore minus iste saepe.</p>
+        <p id="A3">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repudiandae ab quasi sed cupiditate voluptatem, est consequatur blanditiis dignissimos temporibus,
+           eius pariatur dolorum libero molestias ducimus dolore minus iste saepe.</p>
+           <button type="submit" id="B1">hide</button>
+           <button type="submit" id="B2">show</button>
+         <p id="A4">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repudiandae ab quasi sed
+           cupiditate voluptatem, est consequatur blanditiis dignissimos temporibus,
+           eius pariatur dolorum libero molestias ducimus dolore minus iste saepe.</p>
+           <button type="submit" id="B3">fade in</button>
+           <button type="submit" id="B4">fade out</button>
+         <p id="A5">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repudiandae ab quasi sed
+           cupiditate voluptatem, est consequatur blanditiis dignissimos temporibus,
+           eius pariatur dolorum libero molestias ducimus dolore minus iste saepe.</p>
+           <button type="submit" id="B5">toggle</button>
+         
+         <label>age:</label> 
+         <input type="text" id="textid">
+         <button type="submit" id="subid">click me</button>
+        
+         
+         <!-- <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" 
+         crossorigin="anonymous"></script> -->
+
+         <!-- <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script> -->
+          
+         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+         <script>
+            //  $("#subid").click(function(){
+            //    var a=$("#textid").val();
+            //    document.write("hello, "+a+"!");
+            //  });
+
+
+            // $(document).ready(
+            //    function(){
+            //       alert("page loaded!");
+            //    }
+            // );
+
+           
+            //   $("#subid").click(function(){
+            //    var a=$("#textid").val();
+            //    document.write("you are "+a+" years old!");
+            //  });
+
+             $("#A1").css("color","red");
+             $("#A2").css({color:"white",background:"blue"});
+             $("#B1").click(function(){
+               $("#A3").hide();
+             })
+              $("#B2").click(function(){
+               $("#A3").show();
+             })
+            $("#B3").click(function(){
+               $("#A4").fadeIn();
+             })
+            $("#B4").click(function(){
+               $("#A4").fadeOut();
+             })
+            $("#B5").click(function(){
+               $("#A5").toggle();
+             })
+            
+         </script>
+   
+    </body>
+</html>
