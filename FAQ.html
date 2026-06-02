@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <title>exapmle of FAQ</title>
+    </head>
+    <body>
+        <button type="submit" id="B1">+</button>
+           <label>Q1: Why did my hide and show buttons fail?</label> 
+           <p id="A1">
+             You used the Slim version of jQuery. The Slim version does not support animations or fade effects. You must use the Full version</p>
+
+            <br>
+         <button type="submit" id="B2">+</button>
+           <label>Q2: Why did "Fade In" do nothing at first?</label> 
+           <p id="A2">
+              The text paragraph was already visible. You cannot fade in something that you can already see. You must hide it first.</p>
+
+            <br>
+        <button type="submit" id="B3">+</button>
+           <label>Q3: What is the difference between toggle and fadeToggle?</label> 
+           <p id="A3">
+             toggle hides or shows an element instantly like a light switch. fadeToggle does it smoothly by slowly fading it</p>
+
+            <br>
+         <button type="submit" id="B4">+</button>
+           <label>Why did my click events not work on page load?</label> 
+           <p id="A4">
+              The code ran before the HTML buttons were created. Always wrap your code inside $(document).ready() to wait for the page to load.</p>
+
+            <br>
+           <button type="submit" id="B5">+</button>
+           <label>Why is document.write bad for buttons?</label> 
+           <p id="A5">
+              Clicking it will completely erase your entire web page, including all your text and buttons. Use alert() instead to show messages safely.</p>
+           
+         
+         <!-- <label>age:</label> 
+         <input type="text" id="textid">
+         <button type="submit" id="subid">click me</button> -->
+        
+         
+         <!-- <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" 
+         crossorigin="anonymous"></script> -->
+
+         <!-- <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script> -->
+          
+         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+         <script>
+            //  $("#subid").click(function(){
+            //    var a=$("#textid").val();
+            //    document.write("hello, "+a+"!");
+            //  });
+
+
+            // $(document).ready(
+            //    function(){
+            //       alert("page loaded!");
+            //    }
+            // );
+
+           
+            //   $("#subid").click(function(){
+            //    var a=$("#textid").val();
+            //    document.write("you are "+a+" years old!");
+            //  });
+
+             $("#A1").css("color","red");
+             $("#A2").css({color:"white",background:"blue"});
+             $("#B1").click(function(){
+               $("#A1").toggle();
+             })
+              $("#B2").click(function(){
+               $("#A2").toggle();
+             })
+            $("#B3").click(function(){
+               $("#A3").toggle();
+             })
+            $("#B4").click(function(){
+               $("#A4").toggle();
+             })
+            $("#B5").click(function(){
+               $("#A5").toggle();
+             })
+            
+         </script>
+   
+    </body>
+</html>
