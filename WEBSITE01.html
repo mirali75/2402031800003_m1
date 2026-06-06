@@ -423,7 +423,7 @@
                         </div>
             </section>
 <!-- TRANSACTIONS -->
-            <section class="section" id="transactions">
+            <!-- <section class="section" id="transactions">
                 <h2 class="section-title">Transaction Manager</h2>
                 <div class="input-group">
                     <input type="text" id="title" placeholder="Transaction Title"></div>
@@ -449,7 +449,96 @@
                             <tbody id="transactionTable"></tbody>
                         </table>
                     </div>
-            </section>
+            </section> -->
+            <section class="section" id="transactions">
+    <h2 class="section-title">Transaction Manager</h2>
+
+    <div class="input-group">
+        <input type="text" id="title" placeholder="Transaction Title">
+    </div>
+
+    <div class="input-group">
+        <input type="number" id="amount" placeholder="Transaction Amount">
+    </div>
+
+    <div class="input-group">
+        <select id="type">
+            <option value="Income">Income</option>
+            <option value="Expense">Expense</option>
+        </select>
+    </div>
+
+    <div class="input-group">
+        <select id="category">
+            <option value="Salary">Salary</option>
+            <option value="Food">Food</option>
+            <option value="Rent">Rent</option>
+            <option value="Travel">Travel</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Bills">Bills</option>
+            <option value="Other">Other</option>
+        </select>
+    </div>
+
+    <button class="main-btn" onclick="addTransaction()">
+        Add Transaction
+    </button>
+    
+
+    <div class="table-container">
+        <table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Amount (₹)</th>
+                <th>Type</th>
+                <th>Category</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+            <!-- <thead>
+                 <tr>
+                    <th>Title</th>
+                    <th>Amount</th>
+                    <th>Type</th>
+                    <th>Category</th>
+                </tr> 
+                
+            </thead> -->
+            <tbody id="transactionTable"></tbody>
+        </table>
+    </div>
+    <!-- <div class="table-container">
+    <table>
+        
+        <tbody id="transactionTable"></tbody>
+    </table>
+</div> -->
+
+    <div style="margin-top:40px;">
+        <h3 style="text-align:center;margin-bottom:20px;">
+            Income vs Expense
+        </h3>
+        <div style="width:300px; height:300px; margin:auto;">
+    <canvas id="incomeExpenseChart"></canvas>
+</div>
+        <!-- <canvas id="incomeExpenseChart"></canvas> -->
+    </div>
+
+    <div style="margin-top:50px;">
+        <h3 style="text-align:center;margin-bottom:20px;">
+            Expense Breakdown
+        </h3>
+
+        <div style="width:300px; height:300px; margin:auto;">
+    <canvas id="expenseCategoryChart"></canvas>
+</div>
+
+        <!-- <canvas id="expenseCategoryChart"></canvas> -->
+         <!-- <canvas id="expenseCategoryChart" width="300" height="300"></canvas> -->
+    </div>
+</section>
 <!-- PROFILE -->
             <section class="section" id="profile">
                 <h2 class="section-title">User Profile</h2>
@@ -469,6 +558,7 @@
             </section>
             <footer> © 2026 BudgetBoss | Smart Personal Finance Dashboard</footer>
             <script>
+                
             function showSection(sectionId){
                 document.getElementById('home').style.display='none';
                 document.getElementById('budget').style.display='none';
@@ -489,20 +579,159 @@
                         document.getElementById('yearlyIncome').innerHTML = '₹' + yearlyIncome;
                         document.getElementById('yearlySavings').innerHTML = '₹' + yearlySavings;
                     }
-                    function addTransaction(){
-                        let title = document.getElementById('title').value;
-                        let amount = document.getElementById('amount').value;
-                        let type = document.getElementById('type').value;
-                        if(title === '' || amount === ''){
-                            alert('Please fill all fields');
-                            return;}
-                            let table = document.getElementById('transactionTable');
-                            let row = table.insertRow();
-                            row.innerHTML = `<td>${title}</td>
-                                             <td>₹${amount}</td>
-                                             <td>${type}</td>`;
-                                             document.getElementById('title').value='';
-                                             document.getElementById('amount').value='';}
+                    
+                    // function addTransaction(){
+                    //     let title = document.getElementById('title').value;
+                    //     let amount = document.getElementById('amount').value;
+                    //     let type = document.getElementById('type').value;
+                    //     if(title === '' || amount === ''){
+                    //         alert('Please fill all fields');
+                    //         return;}
+                    //         let table = document.getElementById('transactionTable');
+                    //         let row = table.insertRow();
+                    //         row.innerHTML = `<td>${title}</td>
+                    //                          <td>₹${amount}</td>
+                    //                          <td>${type}</td>`;
+                    //                          document.getElementById('title').value='';
+                    //                          document.getElementById('amount').value='';}
+
+                   let totalIncome = 0;
+let totalExpense = 0;
+
+let categoryTotals = {
+    Salary: 0,
+    Food: 0,
+    Rent: 0,
+    Travel: 0,
+    Shopping: 0,
+    Bills: 0,
+    Other: 0
+};
+
+let incomeExpenseChart;
+let expenseCategoryChart;
+
+function createCharts() {
+
+    const ctx1 = document
+        .getElementById('incomeExpenseChart')
+        .getContext('2d');
+
+    incomeExpenseChart = new Chart(ctx1, {
+        type: 'pie',
+        data: {
+            labels: ['Income', 'Expense'],
+            datasets: [{
+                data: [0, 0],
+                backgroundColor: [
+                    '#10b981',
+                    '#ef4444'
+                ]
+            }]
+        }
+    });
+
+    const ctx2 = document
+        .getElementById('expenseCategoryChart')
+        .getContext('2d');
+
+    expenseCategoryChart = new Chart(ctx2, {
+        type: 'doughnut',
+        data: {
+            labels: Object.keys(categoryTotals),
+            datasets: [{
+                data: Object.values(categoryTotals),
+                backgroundColor: [
+                    '#06b6d4',
+                    '#14b8a6',
+                    '#f59e0b',
+                    '#8b5cf6',
+                    '#ef4444',
+                    '#64748b'
+                ]
+            }]
+        }
+    });
+}
+
+function updateCharts() {
+
+    incomeExpenseChart.data.datasets[0].data = [
+        totalIncome,
+        totalExpense
+    ];
+
+    incomeExpenseChart.update();
+
+    expenseCategoryChart.data.datasets[0].data =
+        Object.values(categoryTotals);
+
+    expenseCategoryChart.update();
+}
+
+function addTransaction() {
+
+    let title =
+        document.getElementById('title').value;
+
+    let amount = Number(
+        document.getElementById('amount').value
+    );
+
+    let type =
+        document.getElementById('type').value;
+
+    let category =
+        document.getElementById('category').value;
+
+    if (title === '' || amount <= 0) {
+        alert('Please fill all fields');
+        return;
+    }
+
+    let table =
+        document.getElementById('transactionTable');
+
+    let row = table.insertRow();
+
+
+    let serialNo = table.rows.length;
+
+row.innerHTML = `
+    <td>${serialNo}</td>
+    <td>${title}</td>
+    <td>₹${amount}</td>
+    <td>${type}</td>
+    <td>${category}</td>
+    <td>${new Date().toLocaleDateString()}</td>
+`;
+    // row.innerHTML = `
+    //     <td>${title}</td>
+    //     <td>₹${amount}</td>
+    //     <td>${type}</td>
+    //     <td>${category}</td>
+    // `;
+
+    if (type === 'Income') {
+        totalIncome += amount;
+    } else {
+        totalExpense += amount;
+
+        if (categoryTotals[category] !== undefined) {
+            categoryTotals[category] += amount;
+        }
+    }
+
+    updateCharts();
+
+    document.getElementById('title').value = '';
+    document.getElementById('amount').value = '';
+}
+
+window.onload = function() {
+    createCharts();
+};                          
             </script>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         </body>
     </html>
